@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import certificateImage from '../assets/certificado.jpg';
+
+const translations = {
+	subtitle: { en: 'My Journey', es: 'Mi Trayectoria' },
+	title: { en: 'Trajectory', es: 'Trayectoria' },
+	description: {
+		en: 'A concise view of my experience, education and recognitions.',
+		es: 'Una vista clara de mi experiencia, educación y reconocimientos.'
+	}
+};
+
+const trajectoryData = {
+	experienceTitle: { en: 'Experience', es: 'Experiencia' },
+	experienceRole: {
+		en: 'Web Developer (Freelance / Projects)',
+		es: 'Desarrollador Web (Freelance / Proyectos)'
+	},
+	experienceItems: {
+		en: ['Sales systems', 'APIs and scrapers', 'Android mobile apps'],
+		es: ['Sistemas de ventas', 'APIs y scrapers', 'Apps móviles Android']
+	},
+	educationTitle: { en: 'Education', es: 'Educación' },
+	educationInstitution: {
+		en: 'Universidad de Sipán — Chiclayo, Peru',
+		es: 'Universidad de Sipán — Chiclayo, Perú'
+	},
+	educationItem: {
+		en: 'Systems Engineering studies, in progress.',
+		es: 'Estudios en Ingeniería de Sistemas (en curso).'
+	},
+	achievementsTitle: { en: 'Achievements and Recognition', es: 'Logros y Reconocimientos' },
+	achievementMain: {
+		en: 'First Place — Expert Category, ArchiTech Challenge USS 2025',
+		es: 'Primer Puesto — Categoría Experto, ArchiTech Challenge USS 2025'
+	},
+	certificateLabel: {
+		en: 'Certificate and recommendation',
+		es: 'Certificado y recomendación'
+	}
+};
+---
+
+<Layout title={`Trajectory | Yerridev`}>
+	<Header />
+
+	<main class="min-h-screen px-4 sm:px-6 md:px-6">
+		<section class="max-w-5xl mx-auto min-h-[calc(100vh-5rem)] pt-24 sm:pt-32 md:pt-44 pb-16 sm:pb-24 fade-in px-2 sm:px-0">
+			<div class="max-w-2xl mb-12 sm:mb-16">
+				<p class="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 mb-3 sm:mb-4 tracking-wider uppercase" data-en={translations.subtitle.en} data-es={translations.subtitle.es}>
+					{translations.subtitle.en}
+				</p>
+				<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white" data-en={translations.title.en} data-es={translations.title.es}>
+					{translations.title.en}
+				</h1>
+				<p class="mt-3 sm:mt-4 text-sm sm:text-lg text-gray-600 dark:text-gray-400" data-en={translations.description.en} data-es={translations.description.es}>
+					{translations.description.en}
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+				<div class="lg:col-span-7 space-y-10">
+					<section class="relative pl-6 sm:pl-8 border-l border-gray-300 dark:border-gray-700">
+						<span class="absolute -left-1.5 top-2 h-3 w-3 rounded-full bg-primary"></span>
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4" data-en={trajectoryData.experienceTitle.en} data-es={trajectoryData.experienceTitle.es}>
+							{trajectoryData.experienceTitle.en}
+						</h2>
+						<p class="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4" data-en={trajectoryData.experienceRole.en} data-es={trajectoryData.experienceRole.es}>
+							{trajectoryData.experienceRole.en}
+						</p>
+						<ul class="space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-400">
+							{trajectoryData.experienceItems.en.map((item, index) => (
+								<li class="flex items-start gap-3" data-en={item} data-es={trajectoryData.experienceItems.es[index]}>
+									<span class="mt-2 h-1.5 w-1.5 rounded-full bg-gray-700 dark:bg-gray-300 shrink-0"></span>
+									<span>{item}</span>
+								</li>
+							))}
+						</ul>
+					</section>
+
+					<section class="relative pl-6 sm:pl-8 border-l border-gray-300 dark:border-gray-700">
+						<span class="absolute -left-1.5 top-2 h-3 w-3 rounded-full bg-primary"></span>
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4" data-en={trajectoryData.educationTitle.en} data-es={trajectoryData.educationTitle.es}>
+							{trajectoryData.educationTitle.en}
+						</h2>
+						<p class="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2" data-en={trajectoryData.educationInstitution.en} data-es={trajectoryData.educationInstitution.es}>
+							{trajectoryData.educationInstitution.en}
+						</p>
+						<p class="text-sm sm:text-base text-gray-600 dark:text-gray-400" data-en={trajectoryData.educationItem.en} data-es={trajectoryData.educationItem.es}>
+							{trajectoryData.educationItem.en}
+						</p>
+					</section>
+				</div>
+
+				<div class="lg:col-span-5">
+					<section class="lg:sticky lg:top-28 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-lg shadow-gray-200/50 dark:shadow-black/30">
+						<img src={certificateImage.src} alt="Certificado y recomendación" class="w-full h-auto object-cover" loading="lazy" />
+						<div class="p-5 sm:p-6">
+							<h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3" data-en={trajectoryData.achievementsTitle.en} data-es={trajectoryData.achievementsTitle.es}>
+								{trajectoryData.achievementsTitle.en}
+							</h2>
+							<p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-3" data-en={trajectoryData.achievementMain.en} data-es={trajectoryData.achievementMain.es}>
+								{trajectoryData.achievementMain.en}
+							</p>
+							<p class="text-xs sm:text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400" data-en={trajectoryData.certificateLabel.en} data-es={trajectoryData.certificateLabel.es}>
+								{trajectoryData.certificateLabel.en}
+							</p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const observerOptions = {
+				root: null,
+				rootMargin: '0px',
+				threshold: 0.1
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll('.fade-in').forEach(el => {
+				observer.observe(el);
+			});
+		});
+	</script>
+</Layout>
