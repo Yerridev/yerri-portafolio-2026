@@ -99,16 +99,42 @@ Esto genera un sitio estático en el directorio `dist/`.
 npm run preview
 ```
 
-### Implementar en Vercel
+### 🚀 Desplegar en Vercel
 
-El proyecto está optimizado para Vercel:
+El proyecto está completamente optimizado para Vercel. Tienes dos opciones:
+
+#### Opción 1: Desde la CLI
 
 ```bash
 npm install -g vercel
 vercel
 ```
 
-### Implementar en Netlify
+#### Opción 2: Desde GitHub (Recomendado)
+
+1. Ve a https://vercel.com/new
+2. Importa tu repositorio GitHub (https://github.com/Yerridev/yerri-portafolio-2026)
+3. Selecciona "Astro" como framework
+4. Las configuraciones se detectarán automáticamente:
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+5. Haz clic en "Deploy"
+6. Tu sitio estará en línea en ~60 segundos
+
+**Tu URL de Vercel será algo como:** `https://yerri-portafolio-2026.vercel.app`
+
+#### Configuración Automática
+
+El archivo `vercel.json` contiene la configuración optimizada:
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "astro"
+}
+```
+
+### Desplegar en Netlify
 
 1. Conecta tu repositorio de GitHub a Netlify
 2. Establece comando de compilación: `npm run build`

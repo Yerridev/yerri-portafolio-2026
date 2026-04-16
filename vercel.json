@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "astro",
+  "env": {
+    "NPM_FLAGS": "--legacy-peer-deps"
+  }
+}
